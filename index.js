@@ -1,17 +1,14 @@
 // Import stylesheets
-import './style.css';
+import "./style.css";
 
-const input = document.querySelectorAll('input')
+const input = document.querySelectorAll("input");
 
-console.log(input)
+console.log(input);
 
-
-
-
-function updateSum () {
-
-}
+function updateSum() {}
 
 input.forEach(item => {
-  item.addEventListener('change', updateSum)
-})
+  item.addEventListener("change", updateSum);
+});
+
+console.log(document.getElementById("in1").nextElementSibling);
