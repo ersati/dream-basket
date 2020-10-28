@@ -1,13 +1,24 @@
 // Import stylesheets
 import "./style.css";
 
-const input = document.querySelectorAll("input");
+const inputs = document.querySelectorAll("input");
+const prices = document.querySelectorAll(".price");
+const tot = document.querySelector(".total");
+console.log();
 
-console.log(input);
+function updateSum() {
+  inputs.forEach((el, i) => {
+    let price = prices[i].innerHTML.match(/(\d+)/);
+    console.log(prices[i].innerHTML.match(/(\d+)/));
+    let number = price[i];
+    console.log(el);
+    let total = el * number;
 
-function updateSum() {}
+    tot.textContent = total;
+  });
+}
 
-input.forEach(item => {
+inputs.forEach((item, index) => {
   item.addEventListener("change", updateSum);
 });
 
