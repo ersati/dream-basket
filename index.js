@@ -3,11 +3,22 @@ import "./style.css";
 
 const inputs = document.querySelectorAll("input");
 const prices = document.querySelectorAll(".price");
-const tot = document.querySelector(".total");
+const summary = document.querySelector(".total");
 // console.log();
 let t = 0;
 function updateSum(index) {
-  tot.textContent = t;
+  console.log("ok");
+let totalPrice = 0
+   inputs.forEach((el, i) => {
+    console.log("second");
+    const price = prices[i].innerHTML.match(/(\d+)/)[i];
+    const amount = 
+    // console.log(el.value * price)
+    t = 0;
+    t += el.value * price;
+  });
+  
+  return totalPrice
   // inputs.forEach((el, i) => {
   //   let price = prices[i].innerHTML.match(/(\d+)/);
   //   // console.log(prices[i].innerHTML.match(/(\d+)/));
@@ -15,17 +26,19 @@ function updateSum(index) {
   //   // console.log(el.value);
   //   let total = el.value * number;
 
-    
   // });
 }
 
+function showSum (){
+const currencie = 'zł'
+summary.textContent = `${updateSum} ${currencie}`
+}
+
+
 inputs.forEach((item, index) => {
-  inputs.forEach((el, i) => {
-    const price = prices[i].innerHTML.match(/(\d+)/)[i];
-    console.log((el.value * price))
-    t += el.value * price;
-  });
-  item.addEventListener("change", updateSum);
+  item.addEventListener("input", updateSum);
+  console.log("first");
+ 
 });
 
-console.log(document.getElementById("in1").nextElementSibling);
+// console.log(document.getElementById("in1").nextElementSibling);
