@@ -16,7 +16,9 @@ function updateSum() {
   inputs.forEach((el, i) => {
     console.log(el);
     const price = prices[i].innerHTML.match(/(\d+)/)[i];
+
     totalPrice += el.value * price;
+    console.log(totalPrice);
   });
 
   return totalPrice;
@@ -34,8 +36,11 @@ inputs.forEach(item => {
 
 crosses.forEach(cross => {
   cross.addEventListener('click', e => {
-    console.log('click', e.path[4]);
+    
 
-    e.path[4].remove();
+    e.target.closest('.product').remove();
+    summary.textContent = updateSum();
   });
 });
+
+showSum();
